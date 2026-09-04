@@ -9,7 +9,7 @@ public class User extends Person{
         super();
     }
 
-    public User(Integer id, String name, String lastName, String email, String phone, String password, boolean state, String city, String preferences) {
+    public User(Integer id, String name, String lastName, String email, String phone, String password, SelectStateEnum state, String city, String preferences) {
         super(id, name, lastName, email, phone, password, state);
         this.city = city;
         this.preferences = preferences;

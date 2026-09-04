@@ -1,8 +1,12 @@
 package app.repository;
 
+import app.domain.User;
+
 public class UserRepository {
 
-    public void create() {
+    public User create(User user) {
+
+        return user;
     }
 
 

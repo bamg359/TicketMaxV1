@@ -1,6 +1,8 @@
 package app.view;
 
 import app.domain.SelectStateEnum;
+import app.domain.enums.SelectPreferencesEnum;
+import app.service.UserService;
 
 import java.util.Scanner;
 
@@ -8,7 +10,14 @@ public class UserView {
 
     Scanner sc = new Scanner(System.in);
 
-    public void create() {
+
+    private final UserService userService;
+
+    public UserView(UserService userService){
+        this.userService = userService;
+    }
+
+    public void createUser() {
 
         System.out.println("INgrese el id del usuario: ");
         int id = sc.nextInt();
@@ -24,7 +33,13 @@ public class UserView {
         System.out.println("Ingrese la contraseña del usuario: ");
         String password = sc.nextLine();
         System.out.println("Ingrese el estado del usuario: ");
-        String state;
+        String state = getUserState();
+        System.out.println("Ingrese la ciudad del usuario: ");
+        String city = sc.nextLine();
+        System.out.println("Ingrese las preferencias del usuario: ");
+        String preferences = setUserPreferences();
+
+        userService.create(id, name , lastName , email , phone , password , state, city, preferences);
 
     }
 
@@ -41,7 +56,7 @@ public class UserView {
 
     // métodos Helper
 
-    public String getUserstate(){
+    public String getUserState(){
 
         System.out.println("Seleccione 1. Activo 2. Inactivo 3. Bloqueado");
         int option = sc.nextInt();
@@ -62,6 +77,31 @@ public class UserView {
         }
 
         return state;
+    }
+
+
+    public String setUserPreferences(){
+        System.out.println("Seleccione 1. VIP 2. General 3. Preferencial");
+
+        int option = sc.nextInt();
+        String preferences = "";
+        sc.nextLine();
+        switch (option){
+
+            case 1:
+                preferences = SelectPreferencesEnum.VIP.getPreference();
+                break;
+            case 2:
+                preferences = SelectPreferencesEnum.GENERAL.getPreference();
+                break;
+            case 3:
+                preferences = SelectPreferencesEnum.PREFERENCIAL.getPreference();
+                break;
+            default:
+                System.out.println("Opción no valida");
+
+        }
+        return preferences;
     }
 
 
