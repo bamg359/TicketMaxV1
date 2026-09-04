@@ -31,21 +31,7 @@ public class User extends Person{
         this.preferences = preferences;
     }
 
-    @Override
-    public void create() {
-        super.create();
-    }
 
-    @Override
-    public void selectById(int id) {
-        super.selectById(id);
-    }
-
-
-    @Override
-    public void update() {
-        super.update();
-    }
 
     public void addPreferences(String preference){
 

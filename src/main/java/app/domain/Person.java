@@ -10,7 +10,7 @@ public class Person {
     protected String email;
     protected String phone;
     protected String password;
-    protected boolean state;
+    protected SelectStateEnum state;
 
 
     // Constructor
@@ -24,15 +24,15 @@ public class Person {
         this.password = password;
     }
 
-    public Person(boolean state){
+    /*public Person(boolean state){
         this.state = state;
-    }
+    }*/
 
     public Person(int id){
         this.id = id;
      }
 
-    public Person(Integer id, String name, String lastName, String email, String phone, String password, boolean state) {
+    public Person(Integer id, String name, String lastName, String email, String phone, String password, SelectStateEnum state) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -93,11 +93,11 @@ public class Person {
         this.password = password;
     }
 
-    public boolean isState() {
+    public SelectStateEnum isState() {
         return state;
     }
 
-    public void setState(boolean state) {
+    public void setState(SelectStateEnum state) {
         this.state = state;
     }
 
