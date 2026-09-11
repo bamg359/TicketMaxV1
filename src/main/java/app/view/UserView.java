@@ -1,8 +1,9 @@
 package app.view;
 
-import app.domain.SelectStateEnum;
+import app.domain.enums.SelectStateEnum;
 import app.domain.enums.SelectPreferencesEnum;
-import app.service.UserService;
+import app.service.UserServiceImpl;
+import app.service.helpers.SetUserState;
 
 import java.util.Scanner;
 
@@ -11,10 +12,10 @@ public class UserView {
     Scanner sc = new Scanner(System.in);
 
 
-    private final UserService userService;
+    private final UserServiceImpl userServiceImpl;
 
-    public UserView(UserService userService){
-        this.userService = userService;
+    public UserView(UserServiceImpl userServiceImpl){
+        this.userServiceImpl = userServiceImpl;
     }
 
     public void createUser() {
@@ -33,13 +34,13 @@ public class UserView {
         System.out.println("Ingrese la contraseña del usuario: ");
         String password = sc.nextLine();
         System.out.println("Ingrese el estado del usuario: ");
-        String state = getUserState();
+        String state = SetUserState.getUserState();
         System.out.println("Ingrese la ciudad del usuario: ");
         String city = sc.nextLine();
         System.out.println("Ingrese las preferencias del usuario: ");
         String preferences = setUserPreferences();
 
-        userService.create(id, name , lastName , email , phone , password , state, city, preferences);
+        userServiceImpl.create(id, name , lastName , email , phone , password , state, city, preferences);
 
     }
 
@@ -56,28 +57,7 @@ public class UserView {
 
     // métodos Helper
 
-    public String getUserState(){
 
-        System.out.println("Seleccione 1. Activo 2. Inactivo 3. Bloqueado");
-        int option = sc.nextInt();
-        String state = "";
-        sc.nextLine();
-        switch (option){
-            case 1:
-                state = SelectStateEnum.ACTIVE.getState();
-                break;
-            case 2:
-                state =  SelectStateEnum.INACTIVE.getState();
-                break;
-            case 3:
-                state = SelectStateEnum.BLOCKED.getState();
-                break;
-            default:
-                System.out.println("Opción no valida");
-        }
-
-        return state;
-    }
 
 
     public String setUserPreferences(){

@@ -1,5 +1,7 @@
 package app.domain;
 
+import app.domain.enums.SelectStateEnum;
+
 public class User extends Person{
 
     private String city;

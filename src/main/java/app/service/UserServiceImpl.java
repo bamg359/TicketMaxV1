@@ -1,14 +1,14 @@
 package app.service;
 
-import app.domain.SelectStateEnum;
+import app.domain.enums.SelectStateEnum;
 import app.domain.User;
 import app.repository.UserRepository;
 
-public class UserService {
+public class UserServiceImpl {
 
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository){
+    public UserServiceImpl(UserRepository userRepository){
         this.userRepository = userRepository;
     }
 
