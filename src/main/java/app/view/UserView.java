@@ -1,46 +1,37 @@
 package app.view;
 
-import app.domain.enums.SelectStateEnum;
 import app.domain.enums.SelectPreferencesEnum;
-import app.service.UserServiceImpl;
 import app.service.helpers.SetUserState;
-
-import java.util.Scanner;
+import app.service.inputports.UserService;
+import app.service.validators.DataTypeValidator;
 
 public class UserView {
 
-    Scanner sc = new Scanner(System.in);
 
+    private final UserService userService;
 
-    private final UserServiceImpl userServiceImpl;
-
-    public UserView(UserServiceImpl userServiceImpl){
-        this.userServiceImpl = userServiceImpl;
+    public UserView(UserService userService){
+        this.userService = userService;
     }
 
     public void createUser() {
 
-        System.out.println("INgrese el id del usuario: ");
-        int id = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Ingrese el nombre del usuario: ");
-        String name = sc.nextLine();
-        System.out.println("Ingrese el apellido del usuario: ");
-        String lastName = sc.nextLine();
-        System.out.println("Ingrese el correo del usuario: ");
-        String email = sc.nextLine();
-        System.out.println("Ingrese el telefono del usuario: ");
-        String phone = sc.nextLine();
+
+        int id = DataTypeValidator.validateInt("INgrese el id del usuario: ");
+        String name = DataTypeValidator.validateString("Ingrese el nombre del usuario: ");
+        String lastName = DataTypeValidator.validateString("Ingrese el apellido del usuario: ");
+        String email = DataTypeValidator.validateString("Ingrese el correo del usuario: ");
+        String phone = DataTypeValidator.validateString("Ingrese el telefono del usuario: ");
         System.out.println("Ingrese la contraseña del usuario: ");
-        String password = sc.nextLine();
+        String password = DataTypeValidator.validateString("Ingrese la contraseña del usuario: ");
         System.out.println("Ingrese el estado del usuario: ");
         String state = SetUserState.getUserState();
-        System.out.println("Ingrese la ciudad del usuario: ");
-        String city = sc.nextLine();
+        System.out.println();
+        String city = DataTypeValidator.validateString("Ingrese la ciudad del usuario: ");
         System.out.println("Ingrese las preferencias del usuario: ");
         String preferences = setUserPreferences();
 
-        userServiceImpl.create(id, name , lastName , email , phone , password , state, city, preferences);
+        userService.create(id, name , lastName , email , phone , password , state, city, preferences);
 
     }
 
@@ -61,11 +52,11 @@ public class UserView {
 
 
     public String setUserPreferences(){
-        System.out.println("Seleccione 1. VIP 2. General 3. Preferencial");
 
-        int option = sc.nextInt();
+
+        int option = DataTypeValidator.validateInt("Seleccione 1. VIP 2. General 3. Preferencial");
         String preferences = "";
-        sc.nextLine();
+
         switch (option){
 
             case 1:
