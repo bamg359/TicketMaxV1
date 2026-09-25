@@ -10,7 +10,7 @@ public class Admin extends Person{
         super();
      }
 
-    public Admin(Integer id, String name, String lastName, String email, String phone, String password, boolean state, String role, String area) {
+    public Admin(Integer id, String name, String lastName, String email, String phone, String password, String state, String role, String area) {
         super(id, name, lastName, email, phone, password, state);
         this.role = role;
         this.area = area;

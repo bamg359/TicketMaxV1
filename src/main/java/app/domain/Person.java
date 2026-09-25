@@ -12,7 +12,7 @@ public class Person {
     protected String email;
     protected String phone;
     protected String password;
-    protected SelectStateEnum state;
+    protected String state;
 
 
     // Constructor
@@ -34,7 +34,7 @@ public class Person {
         this.id = id;
      }
 
-    public Person(Integer id, String name, String lastName, String email, String phone, String password, SelectStateEnum state) {
+    public Person(Integer id, String name, String lastName, String email, String phone, String password, String state) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -95,11 +95,11 @@ public class Person {
         this.password = password;
     }
 
-    public SelectStateEnum isState() {
+    public String isState() {
         return state;
     }
 
-    public void setState(SelectStateEnum state) {
+    public void setState(String state) {
         this.state = state;
     }
 

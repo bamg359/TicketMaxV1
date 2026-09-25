@@ -1,9 +1,13 @@
 package app.view;
 
+import app.domain.User;
 import app.domain.enums.SelectPreferencesEnum;
 import app.service.helpers.SetUserState;
 import app.service.inputports.UserService;
 import app.service.validators.DataTypeValidator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserView {
 
@@ -37,6 +41,13 @@ public class UserView {
 
 
     public void selectById(int id) {
+
+    }
+
+
+    public void selectUsers(){
+
+        userService.selectUsers();
 
     }
 

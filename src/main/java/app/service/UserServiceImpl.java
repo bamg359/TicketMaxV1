@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User create(Integer id, String name, String lastName, String email, String phone, String password, String state, String city, String preferences) {
 
-        User user = new User(id, name, lastName, email, phone, password, SelectStateEnum.valueOf(state), city, preferences);
+        User user = new User(id, name, lastName, email, phone, password, state, city, preferences);
 
         return userRepository.save(user);
     }
@@ -36,7 +36,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> selectUsers() {
-        return null;
+
+        return userRepository.selectAll();
     }
 
     @Override
