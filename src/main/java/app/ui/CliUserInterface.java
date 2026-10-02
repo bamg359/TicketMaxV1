@@ -5,13 +5,21 @@ import app.service.UserServiceImpl;
 import app.service.inputports.UserService;
 import app.service.outputports.UserRepository;
 import app.service.validators.DataTypeValidator;
+import app.view.SeatView;
 import app.view.UserView;
 
 public class CliUserInterface {
 
-    UserRepository userRepository = new UserRepositoryImplCollection();
-    UserService userService = new UserServiceImpl(userRepository);
-    UserView userView = new UserView(userService);
+
+
+    private final UserView userView;
+    private final SeatView seatView;
+
+    public CliUserInterface(UserView userView , SeatView seatView){
+        this.userView = userView;
+        this.seatView = seatView;
+
+    }
 
     public void applicationInit(){
 

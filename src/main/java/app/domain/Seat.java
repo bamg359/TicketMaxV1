@@ -5,13 +5,13 @@ public class Seat {
     private Integer seatId;
     private String seatNumber;
     private String seatSector;
-    private boolean isAvailable;
+    private String isAvailable;
 
     public Seat(){
 
     }
 
-    public Seat(Integer seatId, String seatNumber, String seatSector, boolean isAvailable) {
+    public Seat(Integer seatId, String seatNumber, String seatSector, String isAvailable) {
         this.seatId = seatId;
         this.seatNumber = seatNumber;
         this.seatSector = seatSector;
@@ -43,36 +43,11 @@ public class Seat {
         this.seatSector = seatSector;
     }
 
-    public boolean isAvailable() {
+    public String isAvailable() {
         return isAvailable;
     }
 
-    public void setAvailable(boolean available) {
+    public void setAvailable(String available) {
         isAvailable = available;
     }
-
-    public void createSeat(){
-
-    }
-
-    public void selectAllSeats(){
-
-    }
-
-    public void selectSeatById(int id){
-
-    }
-
-    public void updateSeat(){
-
-    }
-
-    public void deleteSeat(int id){
-
-    }
-
-
-
-
-
 }
