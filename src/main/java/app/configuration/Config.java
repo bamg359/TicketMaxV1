@@ -1,14 +1,19 @@
 package app.configuration;
 
+import app.repository.PlaceRepositoryAdapter;
 import app.repository.SeatRepositoryAdapter;
 import app.repository.UserRepositoryImplCollection;
+import app.service.PlaceServiceAdapter;
 import app.service.SeatServiceAdapter;
 import app.service.UserServiceImpl;
+import app.service.inputports.PlaceServiceInterface;
 import app.service.inputports.SeatServiceInterface;
 import app.service.inputports.UserService;
+import app.service.outputports.PlaceRepositoryPort;
 import app.service.outputports.SeatRepositoryPort;
 import app.service.outputports.UserRepository;
 import app.ui.CliUserInterface;
+import app.view.PlaceView;
 import app.view.SeatView;
 import app.view.UserView;
 
@@ -24,7 +29,11 @@ public class Config {
         SeatServiceInterface seatServiceInterface = new SeatServiceAdapter(seatRepositoryPort);
         SeatView seatView = new SeatView(seatServiceInterface);
 
-        return new CliUserInterface(userView,seatView);
+        PlaceRepositoryPort placeRepositoryPort = new PlaceRepositoryAdapter();
+        PlaceServiceInterface placeServiceInterface = new PlaceServiceAdapter(placeRepositoryPort);
+        PlaceView placeView = new PlaceView(placeServiceInterface);
+
+        return new CliUserInterface(userView,seatView, placeView);
     }
 
 }

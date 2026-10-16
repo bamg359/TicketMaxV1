@@ -4,13 +4,13 @@ public class Artist {
 
     private Integer artistId;
     private String artistName;
-    private boolean isAvailable;
+    private String isAvailable;
 
 
     public Artist() {
     }
 
-    public Artist(Integer artistId, String artistName, boolean isAvailable) {
+    public Artist(Integer artistId, String artistName, String isAvailable) {
         this.artistId = artistId;
         this.artistName = artistName;
         this.isAvailable = isAvailable;
@@ -32,33 +32,14 @@ public class Artist {
         this.artistName = artistName;
     }
 
-    public boolean isAvailable() {
+    public String getIsAvailable() {
         return isAvailable;
     }
 
-    public void setAvailable(boolean available) {
-        isAvailable = available;
+    public void setIsAvailable(String isAvailable) {
+        this.isAvailable = isAvailable;
     }
 
-    public void createArtist(){
-
-    }
-
-    public void selectAllArtist(){
-
-    }
-
-    public void selectArtistById(int id){
-
-    }
-
-    public void updateArtist(){
-
-    }
-
-    public void deleteArtist(int id){
-
-    }
 
 
 }
