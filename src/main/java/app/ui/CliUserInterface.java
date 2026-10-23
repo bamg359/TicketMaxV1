@@ -1,17 +1,16 @@
 package app.ui;
 
-import app.repository.UserRepositoryImplCollection;
-import app.service.UserServiceImpl;
-import app.service.inputports.UserService;
-import app.service.outputports.UserRepository;
+import app.persistence.dbconnection.DataBaseConnection;
 import app.service.validators.DataTypeValidator;
 import app.view.PlaceView;
 import app.view.SeatView;
 import app.view.UserView;
 
+import java.sql.Connection;
+
 public class CliUserInterface {
 
-
+    Connection connection = DataBaseConnection.getInstance().getConnection();
 
     private final UserView userView;
     private final SeatView seatView;

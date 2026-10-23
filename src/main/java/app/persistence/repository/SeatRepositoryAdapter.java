@@ -1,4 +1,4 @@
-package app.repository;
+package app.persistence.repository;
 
 import app.domain.Seat;
 import app.service.outputports.SeatRepositoryPort;

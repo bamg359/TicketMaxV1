@@ -1,8 +1,8 @@
 package app.configuration;
 
-import app.repository.PlaceRepositoryAdapter;
-import app.repository.SeatRepositoryAdapter;
-import app.repository.UserRepositoryImplCollection;
+import app.persistence.repository.PlaceRepositoryAdapter;
+import app.persistence.repository.SeatRepositoryAdapter;
+import app.persistence.repository.UserRepositoryImplCollection;
 import app.service.PlaceServiceAdapter;
 import app.service.SeatServiceAdapter;
 import app.service.UserServiceImpl;
