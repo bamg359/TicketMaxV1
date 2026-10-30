@@ -5,6 +5,7 @@ import app.service.inputports.SeatServiceInterface;
 import app.service.outputports.SeatRepositoryPort;
 
 import java.util.List;
+import java.util.Optional;
 
 public class SeatServiceAdapter implements SeatServiceInterface {
 
@@ -23,13 +24,15 @@ public class SeatServiceAdapter implements SeatServiceInterface {
     }
 
     @Override
-    public Seat selectSeatById(int seatId) {
-        return null;
+    public Optional<Seat> selectSeatById(int seatId) {
+        return seatRepositoryPort.selectById(seatId);
     }
 
     @Override
     public List<Seat> selectAllSeats() {
-        return List.of();
+
+
+        return seatRepositoryPort.selectAllSeats();
     }
 
     @Override

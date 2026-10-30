@@ -1,8 +1,11 @@
 package app.view;
 
+import app.domain.Seat;
 import app.service.helpers.SetSeatStateHelper;
 import app.service.inputports.SeatServiceInterface;
 import app.service.validators.DataTypeValidator;
+
+import java.util.List;
 
 public class SeatView {
 
@@ -25,9 +28,24 @@ public class SeatView {
 
     public void selectAllSeats(){
 
+        List<Seat> seats = seatServiceInterface.selectAllSeats();
+
+        for(Seat seat : seats){
+            System.out.println("Id: " +seat.getSeatId()+ "\n" +
+                    "Numero de Silla: " + seat.getSeatNumber() +"\n" +
+                    "Sector: " + seat.getSeatSector() +"\n" +
+                    "Estado: " + seat.isAvailable());
+        }
+
     }
 
-    public void selectSeatById(int id){
+    public void selectSeatById(){
+        int id = DataTypeValidator.validateInt("Ingrese el id a consultar");
+        Seat seat = seatServiceInterface.selectSeatById(id).orElseThrow();
+        System.out.println("Id: " +seat.getSeatId()+ "\n" +
+                "Numero de Silla: " + seat.getSeatNumber() +"\n" +
+                "Sector: " + seat.getSeatSector() +"\n" +
+                "Estado: " + seat.isAvailable());
 
     }
 

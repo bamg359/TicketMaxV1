@@ -5,6 +5,7 @@ import app.service.outputports.SeatRepositoryPort;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class SeatRepositoryAdapter implements SeatRepositoryPort {
 
@@ -18,7 +19,7 @@ public class SeatRepositoryAdapter implements SeatRepositoryPort {
     }
 
     @Override
-    public Seat selectById(int id) {
+    public Optional<Seat> selectById(int id) {
         return null;
     }
 

@@ -2,7 +2,7 @@ package app.domain;
 
 public class Seat {
 
-    private Integer seatId;
+    private int seatId;
     private String seatNumber;
     private String seatSector;
     private String isAvailable;
@@ -11,7 +11,7 @@ public class Seat {
 
     }
 
-    public Seat(Integer seatId, String seatNumber, String seatSector, String isAvailable) {
+    public Seat(int seatId, String seatNumber, String seatSector, String isAvailable) {
         this.seatId = seatId;
         this.seatNumber = seatNumber;
         this.seatSector = seatSector;
@@ -19,11 +19,11 @@ public class Seat {
     }
 
 
-    public Integer getSeatId() {
+    public int getSeatId() {
         return seatId;
     }
 
-    public void setSeatId(Integer seatId) {
+    public void setSeatId(int seatId) {
         this.seatId = seatId;
     }
 

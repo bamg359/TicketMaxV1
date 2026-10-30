@@ -1,7 +1,11 @@
 package app.configuration;
 
+import app.persistence.dbconnection.DataBaseConnection;
+import app.persistence.mappers.RowMapper;
+import app.persistence.mappers.SeatMapper;
 import app.persistence.repository.PlaceRepositoryAdapter;
 import app.persistence.repository.SeatRepositoryAdapter;
+import app.persistence.repository.SeatRepositoryAdapterDB;
 import app.persistence.repository.UserRepositoryImplCollection;
 import app.service.PlaceServiceAdapter;
 import app.service.SeatServiceAdapter;
@@ -17,15 +21,20 @@ import app.view.PlaceView;
 import app.view.SeatView;
 import app.view.UserView;
 
+import java.sql.Connection;
+
 public class Config {
 
     public static CliUserInterface getCliUserInterface() {
+
+        Connection connection = DataBaseConnection.getInstance().getConnection();
+        RowMapper seatRowMapper = new SeatMapper();
 
         UserRepository userRepository = new UserRepositoryImplCollection();
         UserService userService = new UserServiceImpl(userRepository);
         UserView userView = new UserView(userService);
 
-        SeatRepositoryPort seatRepositoryPort = new SeatRepositoryAdapter();
+        SeatRepositoryPort seatRepositoryPort = new SeatRepositoryAdapterDB(connection ,seatRowMapper);
         SeatServiceInterface seatServiceInterface = new SeatServiceAdapter(seatRepositoryPort);
         SeatView seatView = new SeatView(seatServiceInterface);
 

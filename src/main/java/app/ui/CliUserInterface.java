@@ -80,6 +80,10 @@ public class CliUserInterface {
                     System.out.println("Lugares");
                     placeMenu();
                     break;
+                case 4:
+                    System.out.println("Sillas");
+                    seatMenu();
+                    break;
 
                 default:
                     System.out.println("Seleccione una opcion valida");
@@ -133,6 +137,29 @@ public class CliUserInterface {
             case 3:
                 System.out.println("Consultar todos los Lugares");
                 placeView.showAllPlaces();
+                break;
+            default:
+                System.out.println("Ingrese una opción valida");
+        }
+    }
+
+    public void seatMenu(){
+
+        int option = DataTypeValidator.validateInt("Seleccione 1. registrar Silla " +
+                "2. Consultar Silla por id" +
+                "3. Consultar todos las Sillas");
+        switch (option){
+            case 1:
+                System.out.println("Registrar Silla");
+                seatView.createSeat();
+                break;
+            case 2:
+                System.out.println("Consultar Silla por id");
+                seatView.selectSeatById();
+                break;
+            case 3:
+                System.out.println("Consultar todos lss Sillas");
+                seatView.selectAllSeats();
                 break;
             default:
                 System.out.println("Ingrese una opción valida");
