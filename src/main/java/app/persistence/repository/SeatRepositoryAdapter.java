@@ -29,7 +29,7 @@ public class SeatRepositoryAdapter implements SeatRepositoryPort {
     }
 
     @Override
-    public Seat updateSeat(Seat seat) {
+    public Seat updateSeat(int seatId, Seat seat) {
         return null;
     }
 

@@ -37,11 +37,15 @@ public class SeatServiceAdapter implements SeatServiceInterface {
 
     @Override
     public Seat updateSeat(Integer seatId, String seatNumber, String seatSector, String isAvailable) {
-        return null;
+
+        Seat seat = new Seat(seatId, seatNumber, seatSector, isAvailable);
+        return seatRepositoryPort.updateSeat(seatId, seat);
     }
 
     @Override
     public void deleteSeat(int seatId) {
+
+        seatRepositoryPort.deleteById(seatId);
 
     }
 }

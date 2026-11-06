@@ -161,6 +161,14 @@ public class CliUserInterface {
                 System.out.println("Consultar todos lss Sillas");
                 seatView.selectAllSeats();
                 break;
+            case 4:
+                System.out.println("Actualizar Silla por id");
+                seatView.updateSeat();
+                break;
+            case 5:
+                System.out.println("Eliminar Silla por id");
+                seatView.deleteSeat();
+                break;
             default:
                 System.out.println("Ingrese una opción valida");
         }

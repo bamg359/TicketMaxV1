@@ -51,9 +51,22 @@ public class SeatView {
 
     public void updateSeat(){
 
+        int seatId = DataTypeValidator.validateInt("Ingrese el id de la silla a actualizar");
+
+        String seatNumber = DataTypeValidator.validateString("Ingrese el número de la silla");
+        String seatSector = DataTypeValidator.validateString("Ingrese el sector de la silla");
+        String seatState = SetSeatStateHelper.getSeatState();
+
+        seatServiceInterface.updateSeat(seatId, seatNumber, seatSector, seatState);
+
+
     }
 
-    public void deleteSeat(int id){
+    public void deleteSeat(){
+
+        int id = DataTypeValidator.validateInt("Ingrese el id de la silla a eliminar");
+
+        seatServiceInterface.deleteSeat(id);
 
     }
 }

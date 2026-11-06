@@ -86,17 +86,46 @@ public class SeatRepositoryAdapterDB implements SeatRepositoryPort {
         }catch(SQLException e){
             throw new RuntimeException("Error al consultar sillas " + e.getMessage());
         }
-        System.out.println(seats.get(1));
+
         return seats;
     }
 
     @Override
-    public Seat updateSeat(Seat seat) {
-        return null;
+    public Seat updateSeat(int seatId, Seat seat) {
+
+        String sql = "UPDATE seat SET seat_number = ?, seat_sector = ?, is_available = ? WHERE seat_id = ?";
+
+        try(PreparedStatement ps = connection.prepareStatement(sql)){
+
+            setSeatParams(ps , seat);
+            ps.setInt(4, seatId);
+            ps.executeUpdate();
+
+            System.out.println("Silla actualizada con éxito");
+
+        }catch (SQLException e){
+            throw new RuntimeException("Erro al actualizar silla con id: "+ seatId + "Mensaje: " + e.getMessage());
+        }
+
+        return seat;
     }
 
     @Override
     public void deleteById(int id) {
+
+        String sql = "DELETE FROM seat WHERE seat_id = ?";
+
+        try(PreparedStatement ps = connection.prepareStatement(sql)){
+
+            ps.setInt(1, id);
+
+            ps.executeUpdate();
+
+            System.out.println("Silla eliminada con éxito");
+
+        }catch (SQLException e){
+            throw new RuntimeException("Error al eliminar silla con id: " + id + "Mensaje: " + e.getMessage());
+        }
 
     }
 
